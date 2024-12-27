@@ -3,10 +3,10 @@ import morgan from 'morgan';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
-import connectDB from './config/db.js';
-import authRoutes from './routes/auth.routes.js';
-import chatRoutes from './routes/chat.route.js';
-import userRoutes from './routes/user.route.js';
+import connectDB from './src/config/db.js';
+import authRoutes from './src/routes/auth.routes.js';
+import chatRoutes from './src/routes/chat.route.js';
+import userRoutes from './src/routes/user.route.js';
 // import userRoutes from './routes/user.routes.js';
 const app = express();
 
