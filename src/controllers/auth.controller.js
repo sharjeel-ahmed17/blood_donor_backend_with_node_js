@@ -15,11 +15,6 @@ import sendResponse from "../helpers/sendResponse.js";
 
 const createUser = async (req, res) => {
   try {
-    // Validate request body
-    const { error } = createUserSchema.validate(req.body);
-    if (error)
-      return res.status(400).json({ message: error.details[0].message });
-
     const {
       name,
       email,
@@ -33,15 +28,15 @@ const createUser = async (req, res) => {
       isAvailable,
     } = req.body;
 
-    // Check if the user already exists
+   
     const existingUser = await User.findOne({ email });
     if (existingUser)
       return res.status(400).json({ message: "User already exists" });
 
-    // Hash the password
+   
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create new user
+ 
     const newUser = new User({
       name,
       email,
@@ -55,7 +50,7 @@ const createUser = async (req, res) => {
       isAvailable,
     });
 
-    // Save to database
+
     const savedUser = await newUser.save();
     res
       .status(201)

@@ -2,7 +2,7 @@ import "dotenv/config";
 import app from "./app.js";
 import http from 'http';
 import { Server } from 'socket.io';
-import path from "path";
+
 const port  = process.env.PORT || 5000;
 
 const server = http.createServer(app);
